@@ -1,0 +1,51 @@
+[submodule "vagrant.d/puppet/modules/archive"]
+	path = vagrant.d/puppet/modules/archive
+	url = https://github.com/voxpupuli/puppet-archive
+[submodule "vagrant.d/puppet/modules/augeasproviders_core"]
+	path = vagrant.d/puppet/modules/augeasproviders_core
+	url = https://github.com/voxpupuli/puppet-augeasproviders_core
+[submodule "vagrant.d/puppet/modules/augeasproviders_shellvar"]
+	path = vagrant.d/puppet/modules/augeasproviders_shellvar
+	url = https://github.com/hercules-team/augeasproviders_shellvar
+[submodule "vagrant.d/puppet/modules/augeasproviders_sysctl"]
+	path = vagrant.d/puppet/modules/augeasproviders_sysctl
+	url = https://github.com/hercules-team/augeasproviders_sysctl
+[submodule "vagrant.d/puppet/modules/concat"]
+	path = vagrant.d/puppet/modules/concat
+	url = https://github.com/puppetlabs/puppetlabs-concat
+[submodule "vagrant.d/puppet/modules/docker"]
+	path = vagrant.d/puppet/modules/docker
+	url = https://github.com/puppetlabs/puppetlabs-docker
+[submodule "vagrant.d/puppet/modules/git"]
+	path = vagrant.d/puppet/modules/git
+	url = https://github.com/puppetlabs/puppetlabs-git
+[submodule "vagrant.d/puppet/modules/gnupg"]
+	path = vagrant.d/puppet/modules/gnupg
+	url = https://github.com/n1tr0g/golja-gnupg
+[submodule "vagrant.d/puppet/modules/kmod"]
+	path = vagrant.d/puppet/modules/kmod
+	url = https://github.com/voxpupuli/puppet-kmod
+[submodule "vagrant.d/puppet/modules/kubernetes"]
+	path = vagrant.d/puppet/modules/kubernetes
+	url = https://github.com/puppetlabs/puppetlabs-kubernetes
+[submodule "vagrant.d/puppet/modules/nfs"]
+	path = vagrant.d/puppet/modules/nfs
+	url = https://github.com/derdanne/puppet-nfs
+[submodule "vagrant.d/puppet/modules/stdlib"]
+	path = vagrant.d/puppet/modules/stdlib
+	url = https://github.com/puppetlabs/puppetlabs-stdlib
+[submodule "vagrant.d/puppet/modules/sudo"]
+	path = vagrant.d/puppet/modules/sudo
+	url = https://github.com/saz/puppet-sudo
+[submodule "vagrant.d/puppet/modules/transition"]
+	path = vagrant.d/puppet/modules/transition
+	url = https://github.com/puppetlabs/puppetlabs-transition
+[submodule "vagrant.d/puppet/modules/vs_core"]
+	path = vagrant.d/puppet/modules/vs_core
+	url = https://github.com/iatanasov77/puppet-core
+[submodule "vagrant.d/puppet/modules/vs_kubernetes"]
+	path = vagrant.d/puppet/modules/vs_kubernetes
+	url = http://github.com/iatanasov77/puppet-kubernetes
+[submodule "vagrant.d/puppet/modules/wget"]
+	path = vagrant.d/puppet/modules/wget
+	url = https://github.com/voxpupuli/puppet-wget

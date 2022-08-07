@@ -1,0 +1,50 @@
+version: '1.24.1'
+
+packages: ['dos2unix', 'mc', 'vim', 'net-tools', 'telnet', 'unzip', 'git', 'gitflow']    
+git:
+    userName: 'Ivan I. Atanasov'
+    userEmail: 'i.atanasov77@gmail.com'
+    
+hosts:
+    kube-controller:
+        aliases: ['kube-controller.lh']
+        ip: '10.0.254.2'
+    kube-worker:
+        aliases: ['kube-worker.lh']
+        ip: '10.0.254.3'
+
+pod_network_plugins:
+    flannel:
+        enabled: false
+        config_1: 'config_1'
+        config_2: 'config_2'
+    calico:
+        enabled: true
+        config_1: 'config_1'
+        config_2: 'config_2'
+
+subsystems:
+    docker:
+        enabled: true
+        version: 'latest'
+        users: ['vagrant', 'root']
+        
+    dashboard:
+        enabled: true
+
+    ingress_controllers:
+        enabled: true
+        controllers: ['nginx', 'haproxy']
+
+    templating:
+        enabled: true
+        tools: ['kustomize', 'skaffold', 'helm']
+        helmRepos:
+            bitnami: 'https://charts.bitnami.com/bitnami'
+
+    nfs_server:
+        enabled: true
+        data_dir: '/data'
+        domain: 'kube-controller.lh'
+        root_path: '/export'
+
