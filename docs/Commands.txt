@@ -1,0 +1,31 @@
+########################################################################
+# Dashboard
+#######################################################################
+
+# Expose Dashboard outside of Node
+###########################################################
+$ kubectl proxy --address='0.0.0.0' --accept-hosts='^*$' &
+
+$ kubectl -n kubernetes-dashboard edit service kubernetes-dashboard
+change the .spec.type to NodePort
+
+$ kubectl -n kubernetes-dashboard describe services kubernetes-dashboard
+NodePort:       <unset> 30042/TCP
+
+# Creating sample Dashboard user
+#################################################
+$ kubectl apply -f /vagrant/kubernetes.d/Dashboard/dashboard-admin.yaml 
+$ kubectl -n kubernetes-dashboard create token admin-user
+
+
+########################################################################
+# Other Commands
+#######################################################################
+
+# kubernetes list containers in pod
+########################################
+$ kubectl get pods POD_NAME_HERE -o jsonpath='{.spec.containers[*].name}'
+
+# List Helm Repos
+########################################
+$ helm repo list
