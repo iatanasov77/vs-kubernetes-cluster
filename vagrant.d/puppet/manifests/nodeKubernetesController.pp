@@ -10,10 +10,12 @@ node default
         type                => 'controller',
         hosts               => $vsConfig['hosts'],
         
-        packages            => $vsConfig['packages'],
         gitUserName         => $vsConfig['git']['userName'],
         gitUserEmail        => $vsConfig['git']['userEmail'],
         gitCredentials      => $facts['git_credentials'],
+        
+        packages            => $vsConfig['packages'],
+        vstools             => $vsConfig['vstools'],
         
         pod_network_plugins => $vsConfig['pod_network_plugins'],
         subsystems          => $vsConfig['subsystems'],

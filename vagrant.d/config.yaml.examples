@@ -1,10 +1,13 @@
 version: '1.24.1'
 
-packages: ['dos2unix', 'mc', 'vim', 'net-tools', 'telnet', 'unzip', 'git', 'gitflow']    
+packages: ['dos2unix', 'mc', 'vim', 'net-tools', 'telnet', 'unzip', 'git', 'gitflow', 'php-cli']    
 git:
     userName: 'Ivan I. Atanasov'
     userEmail: 'i.atanasov77@gmail.com'
-    
+
+vstools:
+    bumpversion: 'v1.2.0'
+
 hosts:
     kube-controller:
         aliases: ['kube-controller.lh']

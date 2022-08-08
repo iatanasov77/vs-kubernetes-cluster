@@ -10,10 +10,12 @@ node default
         type        => 'worker',
         hosts       => $vsConfig['hosts'],
         
-        packages            => $vsConfig['packages'],
         gitUserName         => $vsConfig['git']['userName'],
         gitUserEmail        => $vsConfig['git']['userEmail'],
         gitCredentials      => $facts['git_credentials'],
+        
+        packages            => $vsConfig['packages'],
+        vstools             => $vsConfig['vstools'],
     }
 
     class { '::vs_kubernetes::subsystems::nfs_client':
