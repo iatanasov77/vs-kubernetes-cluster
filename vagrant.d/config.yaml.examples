@@ -12,8 +12,8 @@ hosts:
     kube-controller:
         aliases: ['kube-controller.lh']
         ip: '10.0.254.2'
-    kube-worker:
-        aliases: ['kube-worker.lh']
+    kube-worker-1:
+        aliases: ['kube-worker-1.lh']
         ip: '10.0.254.3'
 
 pod_network_plugins:
