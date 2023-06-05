@@ -27,6 +27,8 @@ Vagrant.configure("2") do |config|
     config.hostmanager.include_offline      = true
     config.hostmanager.aliases              = []
     
+    config.hostmanager.aliases.push( "#{ENV['CONTROLLER_HOST_NAME']} www.#{ENV['CONTROLLER_HOST_NAME']} api.#{ENV['CONTROLLER_HOST_NAME']}" )
+    
     $done = <<-SCRIPT
 echo "####################################################################"
 echo "# This Machine is DONE!!!"
@@ -59,6 +61,10 @@ echo "##########################################################################
         kch.vm.hostname         = ENV['CONTROLLER_HOST_NAME']
         kch.vm.box_check_update = true
         
+        if Vagrant.has_plugin?( "vagrant-vbguest" ) then
+            kch.vbguest.auto_update = false
+        end
+        
         kch.vm.network :private_network, ip: ENV['CONTROLLER_PRIVATE_IP']
         
         kch.vm.synced_folder "./", "/vagrant"
@@ -69,6 +75,8 @@ echo "##########################################################################
             
             vb.cpus 	= 2
             vb.memory   = ENV['CONTROLLER_MACHINES_MEMORY']
+            
+            vb.check_guest_additions = false
         end
         
         kch.vm.provision "shell", path: "vagrant.d/provision/main.sh", env: {}
@@ -85,7 +93,14 @@ echo "##########################################################################
             puppet.manifest_file  		= "nodeKubernetesController.pp"
             puppet.facter         		= {
                 'vs_config'				=> vsConfig.to_yaml,
-                'git_credentials'       => ENV['GIT_CREDENTIALS'],
+                
+                'controller_address'    => ENV['CONTROLLER_PRIVATE_IP'],
+                'kubernetes_version'    => ENV['KUBERNETES_VERSION'],
+                'container_runtime'     => ENV['CONTAINER_RUNTIME'],
+                'containerd_version'    => ENV['CONTAINERD_VERSION'],
+                'dashboard_version'     => ENV['DASHBOARD_VERSION'],
+                
+                'git_credentials'       => JSON.parse( ENV['GIT_CREDENTIALS'] ),
             }
         end
 
@@ -102,6 +117,10 @@ echo "##########################################################################
         kwh.vm.hostname         = ENV['WORKER_HOST_NAME']
         kwh.vm.box_check_update = true
         
+        if Vagrant.has_plugin?( "vagrant-vbguest" ) then
+            kwh.vbguest.auto_update = false
+        end
+        
         kwh.vm.network :private_network, ip: ENV['WORKER_PRIVATE_IP']
         
         kwh.vm.synced_folder ".", "/vagrant"
@@ -112,6 +131,8 @@ echo "##########################################################################
             
             vb.cpus     = 2
             vb.memory   = ENV['WORKER_MACHINES_MEMORY']
+            
+            vb.check_guest_additions = false
         end
     
         kwh.vm.provision "shell", path: "vagrant.d/provision/main.sh", env: {}
@@ -128,7 +149,14 @@ echo "##########################################################################
             puppet.manifest_file        = "nodeKubernetesWorker.pp"
             puppet.facter               = {
                 'vs_config'				=> vsConfig.to_yaml,
-                'git_credentials'       => ENV['GIT_CREDENTIALS'],
+                
+                'controller_address'    => ENV['CONTROLLER_PRIVATE_IP'],
+                'kubernetes_version'    => ENV['KUBERNETES_VERSION'],
+                'container_runtime'     => ENV['CONTAINER_RUNTIME'],
+                'containerd_version'    => ENV['CONTAINERD_VERSION'],
+                'dashboard_version'     => ENV['DASHBOARD_VERSION'],
+                
+                'git_credentials'       => JSON.parse( ENV['GIT_CREDENTIALS'] ),
             }
         end
     

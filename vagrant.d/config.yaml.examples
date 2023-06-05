@@ -1,14 +1,7 @@
-version: '1.24.1'
-
-packages: ['dos2unix', 'mc', 'vim', 'net-tools', 'telnet', 'unzip', 'git', 'gitflow', 'php-cli']    
-git:
-    userName: 'Ivan I. Atanasov'
-    userEmail: 'i.atanasov77@gmail.com'
-
-vstools:
-    bumpversion: 'v1.2.0'
-
 hosts:
+    #################################################################
+    # x509: certificate is valid for 10.0.254.2, not 10.3.3.10
+    #################################################################
     kube-controller:
         aliases: ['kube-controller.lh']
         ip: '10.0.254.2'
@@ -16,24 +9,77 @@ hosts:
         aliases: ['kube-worker-1.lh']
         ip: '10.0.254.3'
 
+dependencies:
+    remiReleaseRpm: ''
+    #remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/8/remi/x86_64/remi-release-8.5-3.el8.remi.noarch.rpm'
+
+gui:
+    guiRoot: '/vagrant/gui/vs-kubernetes-gui'
+    documentRoot: '/vagrant/gui/vs-kubernetes-gui/dist/vs-kubernetes-gui'
+
+git:
+    userName: 'Ivan I. Atanasov'
+    userEmail: 'i.atanasov77@gmail.com'
+
+vstools:
+    bumpversion: 'v1.2.0'
+    
+frontendtools:
+    #nodejs: latest
+    nodejs: 18.16.0
+    tools:
+        yarn:
+            version: 'latest'
+        angular-cli:
+            version: 'latest'
+
+packages:
+    - dos2unix
+    - mc
+    - vim
+    - net-tools
+    - telnet
+    - unzip
+    - gitflow
+
+
+
 pod_network_plugins:
     flannel:
-        enabled: false
-        config_1: 'config_1'
-        config_2: 'config_2'
-    calico:
         enabled: true
-        config_1: 'config_1'
-        config_2: 'config_2'
+        version: '0.22.0'
+        
+    calico:
+        enabled: false
+        version: '3.26.0'
+        
 
+lamp:
+    phpVersion: '7.4'
+    phpunit: false
+    forcePhp7Repo: true
+    
+    mysql:
+        # provider = false mean use default
+        provider: 'mariadb' # Avaiable options: false, 'mysql', 'mariadb'
+        databases: {}
+    
+    apacheModules: []
+    phpSettings: {}
+    phpModules: {}
+    phpMyAdmin: {}
+        
 subsystems:
     docker:
         enabled: true
+        docker_users: ['vagrant', 'root']
         version: 'latest'
-        users: ['vagrant', 'root']
+        composer_version: '2.18.1'
+        portainer_password: 'Portainer@123'
         
     dashboard:
         enabled: true
+        port: '31001'
 
     ingress_controllers:
         enabled: true

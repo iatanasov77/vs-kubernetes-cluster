@@ -4,18 +4,24 @@ Exec {
 
 node default
 {
-    $vsConfig = parseyaml( $facts['vs_config'] )
+    include stdlib 
+    
+    $vsConfig       = parseyaml( $facts['vs_config'] )
+    $gitCredentials = parsejson( $facts['git_credentials'] )
     
     class { '::vs_kubernetes':
         type        => 'worker',
         hosts       => $vsConfig['hosts'],
-        
-        gitUserName         => $vsConfig['git']['userName'],
-        gitUserEmail        => $vsConfig['git']['userEmail'],
-        gitCredentials      => $facts['git_credentials'],
+        dependencies        => $vsConfig['dependencies'],
         
         packages            => $vsConfig['packages'],
-        vstools             => $vsConfig['vstools'],
+        gitUserName         => $vsConfig['git']['userName'],
+        gitUserEmail        => $vsConfig['git']['userEmail'],
+        gitCredentials      => $gitCredentials,
+        
+        container_runtime   => $facts['container_runtime'],
+        
+        subsystems          => $vsConfig['subsystems'],
     }
 
     class { '::vs_kubernetes::subsystems::nfs_client':
