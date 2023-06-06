@@ -1,10 +1,13 @@
 # CentOs
-kubernetes::kubernetes_version: 1.24.1
+kubernetes::kubernetes_version: "%{kubernetes_version}"
 kubernetes::kubernetes_package_version:
-kubernetes::container_runtime: cri_containerd
+kubernetes::container_runtime: "%{container_runtime}"
+kubernetes::containerd_version: "%{containerd_version}"
+
+kubernetes::containerd_sandbox_image: "registry.k8s.io/pause:3.9"
 
 kubernetes::install_dashboard: true
-kubernetes::dashboard_version: 2.6.0
+kubernetes::dashboard_version: "%{dashboard_version}"
 
 kubernetes::cni_provider: calico
 kubernetes::cni_network_provider: 
@@ -12,14 +15,14 @@ kubernetes::cni_network_provider:
 #kubernetes::cni_network_provider: https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 kubernetes::cni_pod_cidr: 10.244.0.0/16
 
-kubernetes::etcd_initial_cluster: kube-controller=https://10.0.254.2:2380
+kubernetes::etcd_initial_cluster: "kube-controller=https://%{ipaddress_eth1}:2380"
 kubernetes::etcd_peers:
-- 10.0.254.2
+- "%{ipaddress_eth1}"
 kubernetes::etcd_ip: "%{ipaddress_eth1}"
 
 kubernetes::api_server_count: 1
 kubernetes::kube_api_advertise_address: "%{ipaddress_eth1}"
-kubernetes::controller_address: 10.0.254.2:6443
+kubernetes::controller_address: "%{controller_address}:6443"
 
 kubernetes::token: bb5383.bf8b8b6824b299b1
 

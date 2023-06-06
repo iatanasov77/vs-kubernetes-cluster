@@ -1,36 +1,122 @@
-version: '1.24.1'
-
-packages: ['dos2unix', 'mc', 'vim', 'net-tools', 'telnet', 'unzip', 'git', 'gitflow']    
-git:
-    userName: 'Ivan I. Atanasov'
-    userEmail: 'i.atanasov77@gmail.com'
-    
 hosts:
+    #################################################################
+    # x509: certificate is valid for 10.0.254.2, not 10.3.3.10
+    #################################################################
     kube-controller:
         aliases: ['kube-controller.lh']
         ip: '10.0.254.2'
-    kube-worker:
-        aliases: ['kube-worker.lh']
+    kube-worker-1:
+        aliases: ['kube-worker-1.lh']
         ip: '10.0.254.3'
+
+dependencies:
+    remiReleaseRpm: ''
+    #remiReleaseRpm: 'https://rpms.remirepo.net/enterprise/8/remi/x86_64/remi-release-8.5-3.el8.remi.noarch.rpm'
+
+gui:
+    guiRoot: '/vagrant/gui/vs-kubernetes-gui'
+    documentRoot: '/vagrant/gui/vs-kubernetes-gui/dist/vs-kubernetes-gui'
+
+git:
+    userName: 'Ivan I. Atanasov'
+    userEmail: 'i.atanasov77@gmail.com'
+
+vstools:
+    bumpversion: 'v1.2.0'
+    
+frontendtools:
+    #nodejs: latest
+    nodejs: 18.16.0
+    tools:
+        yarn:
+            version: 'latest'
+        angular-cli:
+            version: 'latest'
+
+packages:
+    - dos2unix
+    - mc
+    - vim
+    - net-tools
+    - telnet
+    - unzip
+    - gitflow
+
+
 
 pod_network_plugins:
     flannel:
         enabled: false
-        config_1: 'config_1'
-        config_2: 'config_2'
+        version: '0.22.0'
+        
     calico:
         enabled: true
-        config_1: 'config_1'
-        config_2: 'config_2'
+        version: '3.26.0'
+        
 
+lamp:
+    phpVersion: '7.4'
+    phpunit: false
+    forcePhp7Repo: true
+    
+    mysql:
+        # provider = false mean use default
+        provider: 'mariadb' # Avaiable options: false, 'mysql', 'mariadb'
+        databases: {}
+    
+    apacheModules: []
+    phpSettings: {}
+    phpModules: {}
+    phpMyAdmin: {}
+        
 subsystems:
+    ansible:
+        enabled: true  # Problem installing on CentOs 8
+        
+    cloud_platforms:
+        enabled: true
+        azure: true
+        aws: true
+
+    hashicorp:
+        enabled: true
+        packer:
+            version: '1.7.0'
+            vagrant:
+                virtualboxVersion: '7.0'
+                vagrantRpm: 'https://releases.hashicorp.com/vagrant/2.3.4/vagrant-2.3.4-1.x86_64.rpm'
+        terraform:
+            version: '0.12.28'
+            config:
+                aws:
+                    accessKey: 'NOT_DEFINED'
+                    secretKey: 'NOT_DEFINED'
+                    region: 'eu-central-1'
+                azure:
+                    clientId: 'NOT_DEFINED'
+                    clientSecret: 'NOT_DEFINED'
+                    subscriptionId: 'NOT_DEFINED'
+                    tenantId: 'NOT_DEFINED'
+        
+        ##############################################################################################
+        # https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-ui
+        ##############################################################################################     
+        vault:
+            version: '1.5.5'
+            config:
+                port: '8200'
+                secrets: '/vagrant/vault.d/secrets.json'
+    
     docker:
         enabled: true
+        docker_users: ['vagrant', 'root']
         version: 'latest'
-        users: ['vagrant', 'root']
+        composer_version: '2.18.1'
+        portainer_password: 'Portainer@123'
         
     dashboard:
         enabled: true
+        port: '31001'
 
     ingress_controllers:
         enabled: true

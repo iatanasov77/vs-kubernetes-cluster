@@ -49,3 +49,27 @@
 [submodule "vagrant.d/puppet/modules/wget"]
 	path = vagrant.d/puppet/modules/wget
 	url = https://github.com/voxpupuli/puppet-wget
+[submodule "vagrant.d/puppet/modules/vs_lamp"]
+	path = vagrant.d/puppet/modules/vs_lamp
+	url = https://github.com/iatanasov77/puppet-lamp.git
+[submodule "vagrant.d/puppet/modules/nodejs"]
+	path = vagrant.d/puppet/modules/nodejs
+	url = https://github.com/willdurand/puppet-nodejs.git
+[submodule "vagrant.d/puppet/modules/apache"]
+	path = vagrant.d/puppet/modules/apache
+	url = https://github.com/puppetlabs/puppetlabs-apache.git
+[submodule "vagrant.d/puppet/modules/php"]
+	path = vagrant.d/puppet/modules/php
+	url = https://github.com/voxpupuli/puppet-php
+[submodule "vagrant.d/puppet/modules/mysql"]
+	path = vagrant.d/puppet/modules/mysql
+	url = https://github.com/puppetlabs/puppetlabs-mysql.git
+[submodule "vagrant.d/puppet/modules/wait-for"]
+	path = vagrant.d/puppet/modules/wait-for
+	url = https://github.com/heini/puppet-wait-for.git
+[submodule "vagrant.d/puppet/modules/ansible"]
+	path = vagrant.d/puppet/modules/ansible
+	url = https://github.com/otherskins/puppet-ansible.git
+[submodule "vagrant.d/puppet/modules/hashi_stack"]
+	path = vagrant.d/puppet/modules/hashi_stack
+	url = https://github.com/voxpupuli/puppet-hashi_stack.git
