@@ -67,3 +67,9 @@
 [submodule "vagrant.d/puppet/modules/wait-for"]
 	path = vagrant.d/puppet/modules/wait-for
 	url = https://github.com/heini/puppet-wait-for.git
+[submodule "vagrant.d/puppet/modules/ansible"]
+	path = vagrant.d/puppet/modules/ansible
+	url = https://github.com/otherskins/puppet-ansible.git
+[submodule "vagrant.d/puppet/modules/hashi_stack"]
+	path = vagrant.d/puppet/modules/hashi_stack
+	url = https://github.com/voxpupuli/puppet-hashi_stack.git

@@ -46,11 +46,11 @@ packages:
 
 pod_network_plugins:
     flannel:
-        enabled: true
+        enabled: false
         version: '0.22.0'
         
     calico:
-        enabled: false
+        enabled: true
         version: '3.26.0'
         
 
@@ -70,6 +70,43 @@ lamp:
     phpMyAdmin: {}
         
 subsystems:
+    ansible:
+        enabled: true  # Problem installing on CentOs 8
+        
+    cloud_platforms:
+        enabled: true
+        azure: true
+        aws: true
+
+    hashicorp:
+        enabled: true
+        packer:
+            version: '1.7.0'
+            vagrant:
+                virtualboxVersion: '7.0'
+                vagrantRpm: 'https://releases.hashicorp.com/vagrant/2.3.4/vagrant-2.3.4-1.x86_64.rpm'
+        terraform:
+            version: '0.12.28'
+            config:
+                aws:
+                    accessKey: 'NOT_DEFINED'
+                    secretKey: 'NOT_DEFINED'
+                    region: 'eu-central-1'
+                azure:
+                    clientId: 'NOT_DEFINED'
+                    clientSecret: 'NOT_DEFINED'
+                    subscriptionId: 'NOT_DEFINED'
+                    tenantId: 'NOT_DEFINED'
+        
+        ##############################################################################################
+        # https://developer.hashicorp.com/vault/tutorials/getting-started/getting-started-ui
+        ##############################################################################################     
+        vault:
+            version: '1.5.5'
+            config:
+                port: '8200'
+                secrets: '/vagrant/vault.d/secrets.json'
+    
     docker:
         enabled: true
         docker_users: ['vagrant', 'root']
