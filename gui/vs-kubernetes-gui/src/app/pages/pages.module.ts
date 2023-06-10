@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { HomeComponent } from './home/home.component';
 import { ExamplesContainerComponent } from './examples/container/examples-container.component';
+import { ExamplesKubernetesComponent } from './examples/kubernetes/examples-kubernetes.component';
 import { ExamplesAnsibleComponent } from './examples/ansible/examples-ansible.component';
 import { ExamplesHashicorpComponent } from './examples/hashicorp/examples-hashicorp.component';
 import { ExamplesOtherComponent } from './examples/other/examples-other.component';
@@ -16,6 +17,7 @@ import { DevopsServicesComponent } from './devops-services/devops-services.compo
 @NgModule({
     declarations: [
         HomeComponent,
+        ExamplesKubernetesComponent,
         ExamplesContainerComponent,
         ExamplesAnsibleComponent,
         ExamplesHashicorpComponent,
@@ -31,6 +33,7 @@ import { DevopsServicesComponent } from './devops-services/devops-services.compo
     ],
     exports: [
         HomeComponent,
+        ExamplesKubernetesComponent,
         ExamplesContainerComponent,
         ExternalToolsComponent,
         DevopsServicesComponent

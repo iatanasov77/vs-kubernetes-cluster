@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './core/page-not-found/page-not-found.comp
 import { HomeComponent } from './pages/home/home.component';
 
 import { ExamplesContainerComponent } from './pages/examples/container/examples-container.component';
+import { ExamplesKubernetesComponent } from './pages/examples/kubernetes/examples-kubernetes.component';
 import { ExamplesAnsibleComponent } from './pages/examples/ansible/examples-ansible.component';
 import { ExamplesHashicorpComponent } from './pages/examples/hashicorp/examples-hashicorp.component';
 import { ExamplesOtherComponent } from './pages/examples/other/examples-other.component';
@@ -41,8 +42,15 @@ const routes: Routes = [
         children: [
             {
                 path:'',
-                redirectTo: 'ansible',
+                redirectTo: 'kubernetes',
                 pathMatch: 'full'
+            },
+            {
+                path: 'kubernetes',
+                component: ExamplesKubernetesComponent,
+                data: {
+                    title: 'VS DevOps Examples - Kubernetes',
+                },
             },
             {
                 path: 'ansible',
