@@ -2,7 +2,7 @@
 
 # Compiled output
 /dist/vs-kubernetes-gui/*
-!/dist/vs-kubernetes-gui/.gitkeep
+!/dist/vs-kubernetes-gui/.keepthis
 /tmp
 /out-tsc
 /bazel-out
