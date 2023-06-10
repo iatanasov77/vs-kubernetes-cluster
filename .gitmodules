@@ -13,9 +13,11 @@
 [submodule "vagrant.d/puppet/modules/concat"]
 	path = vagrant.d/puppet/modules/concat
 	url = https://github.com/puppetlabs/puppetlabs-concat
+    branch = main
 [submodule "vagrant.d/puppet/modules/docker"]
 	path = vagrant.d/puppet/modules/docker
 	url = https://github.com/puppetlabs/puppetlabs-docker
+    branch = main
 [submodule "vagrant.d/puppet/modules/git"]
 	path = vagrant.d/puppet/modules/git
 	url = https://github.com/puppetlabs/puppetlabs-git
@@ -28,42 +30,50 @@
 [submodule "vagrant.d/puppet/modules/kubernetes"]
 	path = vagrant.d/puppet/modules/kubernetes
 	url = https://github.com/puppetlabs/puppetlabs-kubernetes
+    branch = main
 [submodule "vagrant.d/puppet/modules/nfs"]
 	path = vagrant.d/puppet/modules/nfs
 	url = https://github.com/derdanne/puppet-nfs
 [submodule "vagrant.d/puppet/modules/stdlib"]
 	path = vagrant.d/puppet/modules/stdlib
 	url = https://github.com/puppetlabs/puppetlabs-stdlib
+    branch = main
 [submodule "vagrant.d/puppet/modules/sudo"]
 	path = vagrant.d/puppet/modules/sudo
 	url = https://github.com/saz/puppet-sudo
 [submodule "vagrant.d/puppet/modules/transition"]
 	path = vagrant.d/puppet/modules/transition
 	url = https://github.com/puppetlabs/puppetlabs-transition
+    branch = main
 [submodule "vagrant.d/puppet/modules/vs_core"]
 	path = vagrant.d/puppet/modules/vs_core
 	url = https://github.com/iatanasov77/puppet-core
+    branch = main
 [submodule "vagrant.d/puppet/modules/vs_kubernetes"]
 	path = vagrant.d/puppet/modules/vs_kubernetes
 	url = http://github.com/iatanasov77/puppet-kubernetes
+    branch = main
 [submodule "vagrant.d/puppet/modules/wget"]
 	path = vagrant.d/puppet/modules/wget
 	url = https://github.com/voxpupuli/puppet-wget
 [submodule "vagrant.d/puppet/modules/vs_lamp"]
 	path = vagrant.d/puppet/modules/vs_lamp
 	url = https://github.com/iatanasov77/puppet-lamp.git
+    branch = main
 [submodule "vagrant.d/puppet/modules/nodejs"]
 	path = vagrant.d/puppet/modules/nodejs
 	url = https://github.com/willdurand/puppet-nodejs.git
 [submodule "vagrant.d/puppet/modules/apache"]
 	path = vagrant.d/puppet/modules/apache
 	url = https://github.com/puppetlabs/puppetlabs-apache.git
+    branch = main
 [submodule "vagrant.d/puppet/modules/php"]
 	path = vagrant.d/puppet/modules/php
 	url = https://github.com/voxpupuli/puppet-php
 [submodule "vagrant.d/puppet/modules/mysql"]
 	path = vagrant.d/puppet/modules/mysql
 	url = https://github.com/puppetlabs/puppetlabs-mysql.git
+    branch = main
 [submodule "vagrant.d/puppet/modules/wait-for"]
 	path = vagrant.d/puppet/modules/wait-for
 	url = https://github.com/heini/puppet-wait-for.git
