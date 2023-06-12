@@ -99,6 +99,8 @@ echo "##########################################################################
                 'container_runtime'     => ENV['CONTAINER_RUNTIME'],
                 'containerd_version'    => ENV['CONTAINERD_VERSION'],
                 'dashboard_version'     => ENV['DASHBOARD_VERSION'],
+                'network_provider'      => ENV['KUBERNETES_NETWORK_PROVIDER'],
+                'network_cidr'          => ENV['KUBERNETES_NETWORK_CIDR'],
                 
                 'git_credentials'       => JSON.parse( ENV['GIT_CREDENTIALS'] ),
             }

@@ -9,11 +9,11 @@ kubernetes::containerd_sandbox_image: "registry.k8s.io/pause:3.9"
 kubernetes::install_dashboard: true
 kubernetes::dashboard_version: "%{dashboard_version}"
 
-kubernetes::cni_provider: calico
+kubernetes::cni_provider: "%{network_provider}"
 kubernetes::cni_network_provider: 
 #kubernetes::cni_network_provider: https://docs.projectcalico.org/v3.14/manifests/calico.yaml
 #kubernetes::cni_network_provider: https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-kubernetes::cni_pod_cidr: 10.244.0.0/16
+kubernetes::cni_pod_cidr: "%{network_cidr}"
 
 kubernetes::etcd_initial_cluster: "kube-controller=https://%{ipaddress_eth1}:2380"
 kubernetes::etcd_peers:

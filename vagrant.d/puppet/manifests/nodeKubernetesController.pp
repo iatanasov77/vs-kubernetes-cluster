@@ -19,8 +19,10 @@ node default
         gitUserEmail        => $vsConfig['git']['userEmail'],
         gitCredentials      => $gitCredentials,
         
-        pod_network_plugins => $vsConfig['pod_network_plugins'],
+        kubernetesConfig    => $vsConfig['kubernetes'],
         container_runtime   => $facts['container_runtime'],
+        network_provider    => $facts['network_provider'],
+        network_cidr        => $facts['network_cidr'],
         
         subsystems          => $vsConfig['subsystems'],
         
@@ -30,17 +32,17 @@ node default
         #############################################################################
         # LAMP SERVER
         #############################################################################
-        forcePhp7Repo               => $vsConfig['lamp']['forcePhp7Repo'],
-        mySqlProvider               => $vsConfig['lamp']['mysql']['provider'],
-        phpVersion                  => "${vsConfig['lamp']['phpVersion']}",
-        apacheModules               => $vsConfig['lamp']['apacheModules'],
+        forcePhp7Repo       => $vsConfig['lamp']['forcePhp7Repo'],
+        mySqlProvider       => $vsConfig['lamp']['mysql']['provider'],
+        phpVersion          => "${vsConfig['lamp']['phpVersion']}",
+        apacheModules       => $vsConfig['lamp']['apacheModules'],
         
-        phpModules                  => $vsConfig['lamp']['phpModules'],
-        phpunit                     => $vsConfig['lamp']['phpunit'],
+        phpModules          => $vsConfig['lamp']['phpModules'],
+        phpunit             => $vsConfig['lamp']['phpunit'],
         
-        phpSettings                 => $vsConfig['lamp']['phpSettings'],
+        phpSettings         => $vsConfig['lamp']['phpSettings'],
         
-        phpMyAdmin                  => $vsConfig['lamp']['phpMyAdmin'],
+        phpMyAdmin          => $vsConfig['lamp']['phpMyAdmin'],
     }
 
     # Config sudo users

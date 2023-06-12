@@ -55,7 +55,8 @@ pod_network_plugins:
         
 
 lamp:
-    phpVersion: '7.4'
+    apacheVersion: 'installed'  # Latest Version
+    phpVersion: '8.1'
     phpunit: false
     forcePhp7Repo: true
     
@@ -64,9 +65,9 @@ lamp:
         provider: 'mariadb' # Avaiable options: false, 'mysql', 'mariadb'
         databases: {}
     
-    apacheModules: []
     phpSettings: {}
     phpModules: {}
+    apacheModules: []    
     phpMyAdmin: {}
         
 subsystems:
