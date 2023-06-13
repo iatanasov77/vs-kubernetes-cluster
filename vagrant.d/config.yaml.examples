@@ -44,14 +44,12 @@ packages:
 
 
 
-pod_network_plugins:
-    flannel:
-        enabled: false
-        version: '0.22.0'
-        
-    calico:
-        enabled: true
-        version: '3.26.0'
+kubernetes:
+    pod_network_plugins:
+        flannel:
+            version: '0.22.0'
+        calico:
+            version: '3.26.0'
         
 
 lamp:
