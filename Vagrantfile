@@ -40,14 +40,12 @@ echo "####################################################################"
 echo "##########################################################################################################################################"
 echo "#"
 echo "# All finished successfull "
-echo "# ------------------------ "
+echo "# ======================== "
 echo "#"
 echo "# -----------------------------------------------------------------------------"
-echo "# Now You Can Open Kubernetes Dashboard on: "
-echo "#          https://kube-controller.lh:31001"
 echo "#"
-echo "# Get Kubernetes Dashboard Admin Token With: "
-echo "#         kubectl create token admin-user -n kubernetes-dashboard "
+echo "# Now You Can Open GUI on: http://kube-controller.lh"
+echo "#"
 echo "# -----------------------------------------------------------------------------"
 echo "#"
 echo "##########################################################################################################################################"
@@ -99,6 +97,8 @@ echo "##########################################################################
                 'container_runtime'     => ENV['CONTAINER_RUNTIME'],
                 'containerd_version'    => ENV['CONTAINERD_VERSION'],
                 'dashboard_version'     => ENV['DASHBOARD_VERSION'],
+                'network_provider'      => ENV['KUBERNETES_NETWORK_PROVIDER'],
+                'network_cidr'          => ENV['KUBERNETES_NETWORK_CIDR'],
                 
                 'git_credentials'       => JSON.parse( ENV['GIT_CREDENTIALS'] ),
             }

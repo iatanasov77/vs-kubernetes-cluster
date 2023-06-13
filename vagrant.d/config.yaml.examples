@@ -44,18 +44,17 @@ packages:
 
 
 
-pod_network_plugins:
-    flannel:
-        enabled: false
-        version: '0.22.0'
-        
-    calico:
-        enabled: true
-        version: '3.26.0'
+kubernetes:
+    pod_network_plugins:
+        flannel:
+            version: '0.22.0'
+        calico:
+            version: '3.26.0'
         
 
 lamp:
-    phpVersion: '7.4'
+    apacheVersion: 'installed'  # Latest Version
+    phpVersion: '8.1'
     phpunit: false
     forcePhp7Repo: true
     
@@ -64,9 +63,9 @@ lamp:
         provider: 'mariadb' # Avaiable options: false, 'mysql', 'mariadb'
         databases: {}
     
-    apacheModules: []
     phpSettings: {}
     phpModules: {}
+    apacheModules: []    
     phpMyAdmin: {}
         
 subsystems:

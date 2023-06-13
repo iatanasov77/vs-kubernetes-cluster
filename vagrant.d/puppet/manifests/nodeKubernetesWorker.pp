@@ -10,8 +10,8 @@ node default
     $gitCredentials = parsejson( $facts['git_credentials'] )
     
     class { '::vs_kubernetes':
-        type        => 'worker',
-        hosts       => $vsConfig['hosts'],
+        type                => 'worker',
+        hosts               => $vsConfig['hosts'],
         dependencies        => $vsConfig['dependencies'],
         
         packages            => $vsConfig['packages'],
@@ -19,6 +19,7 @@ node default
         gitUserEmail        => $vsConfig['git']['userEmail'],
         gitCredentials      => $gitCredentials,
         
+        kubernetesConfig    => $vsConfig['kubernetes'],
         container_runtime   => $facts['container_runtime'],
         
         subsystems          => $vsConfig['subsystems'],
