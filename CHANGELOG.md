@@ -1,3 +1,16 @@
+1.1.0	|	Release date: **13.06.2023**
+============================================
+* New Features and Improvements:
+  - Update GitHub Readme.
+  - Add Kubernetes Examples to GUI Page.
+  - Many Many Improvemets.
+  - Update Git Submodules.
+  - Update Vagrant Finish Information.
+* Bug-Fixes:
+  - Fix Git Commiting of GUI Sources.
+  - Git Keep GUI Dist Directory.
+
+
 1.0.0	|	Release date: **06.06.2023**
 ============================================
 * New Features and Improvements:
