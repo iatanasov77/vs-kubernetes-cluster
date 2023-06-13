@@ -1,3 +1,9 @@
+1.2.0	|	Release date: **13.06.2023**
+============================================
+* New Features:
+  - Move Kubernetes Manifests From Subsystems to Kubernetes Namespace.
+
+
 1.1.0	|	Release date: **13.06.2023**
 ============================================
 * New Features and Improvements:
