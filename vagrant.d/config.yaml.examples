@@ -50,6 +50,20 @@ kubernetes:
             version: '0.22.0'
         calico:
             version: '3.26.0'
+            
+    dashboard:
+        enabled: true
+        port: '31001'
+
+    ingress_controllers:
+        enabled: true
+        controllers: ['nginx', 'haproxy']
+
+    templating:
+        enabled: true
+        tools: ['kustomize', 'skaffold', 'helm']
+        helmRepos:
+            bitnami: 'https://charts.bitnami.com/bitnami'
         
 
 lamp:
@@ -112,20 +126,6 @@ subsystems:
         version: 'latest'
         composer_version: '2.18.1'
         portainer_password: 'Portainer@123'
-        
-    dashboard:
-        enabled: true
-        port: '31001'
-
-    ingress_controllers:
-        enabled: true
-        controllers: ['nginx', 'haproxy']
-
-    templating:
-        enabled: true
-        tools: ['kustomize', 'skaffold', 'helm']
-        helmRepos:
-            bitnami: 'https://charts.bitnami.com/bitnami'
 
     nfs_server:
         enabled: true
