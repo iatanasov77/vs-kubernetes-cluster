@@ -1,3 +1,10 @@
+1.2.1	|	Release date: **15.07.2023**
+============================================
+* New Features:
+  - Update Git Submodules.
+  - Add to Docs.
+
+
 1.2.0	|	Release date: **13.06.2023**
 ============================================
 * New Features:
